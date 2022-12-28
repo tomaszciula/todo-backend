@@ -7,9 +7,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/")
 public class TodoController {
 
     @Autowired
@@ -29,6 +29,7 @@ public class TodoController {
             item.setDone(newTodo.isDone());
             item.setText(newTodo.getText());
             item.setImportant(newTodo.getImportant());
+//            item.setAppUserId(newTodo.getAppUserId());
             return todoRepository.save(item);
         })
                 .orElseGet(() -> {
